@@ -21,13 +21,27 @@ class LinkList {
 
   prepend(value) {
     const node = new Node(value);
-    if (this.isEmpty) {
+    if (this.isEmpty()) {
       this.head = node;
     } else {
       node.next = this.head;
       this.head = node;
     }
     this.size++;
+  }
+
+  print() {
+    if (this.isEmpty()) {
+      console.log("List is Empty");
+    } else {
+      let curr = this.head;
+      let listValue = "";
+      while (curr) {
+        listValue += `${curr.value} `;
+        curr = curr.next;
+      }
+      console.log(listValue);
+    }
   }
 }
 
@@ -36,9 +50,13 @@ const list = new LinkList();
 console.log(list.isEmpty());
 console.log(list.getSize());
 
+list.print();
+
 list.prepend(10);
 list.prepend(20);
 
 //Result after adding value in the list
 console.log(list.isEmpty());
 console.log(list.getSize());
+
+list.print();
