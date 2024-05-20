@@ -105,6 +105,26 @@ class LinkList {
     }
   }
 
+  search(value) {
+    if (this.isEmpty()) {
+      console.log(`Value ${value} not found`);
+      return -1;
+    } else {
+      let i = 0;
+      let curr = this.head;
+      while (curr) {
+        if (curr.value === value) {
+          console.log(`The Value ${value} is in index ${i}`);
+          return i;
+        }
+        curr = curr.next;
+        i++;
+      }
+      console.log(`Value ${value} not found`);
+      return -1;
+    }
+  }
+
   print() {
     if (this.isEmpty()) {
       console.log("List is Empty");
@@ -142,7 +162,10 @@ console.log(list.getSize());
 list.print();
 
 // console.log(list.remove(3));
-console.log(list.removeValue(25));
-console.log(list.removeValue(20));
+// console.log(list.removeValue(25));
+// console.log(list.removeValue(20));
+
+list.search(25);
+list.search(27);
 
 list.print();
