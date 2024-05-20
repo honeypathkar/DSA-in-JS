@@ -62,6 +62,26 @@ class LinkList {
     }
   }
 
+  remove(index) {
+    if (index < 0 || index > this.size) {
+      return null;
+    }
+    let removeNode;
+    if (index === 0) {
+      removeNode = this.head;
+      this.head = this.head.next;
+    } else {
+      let prev = this.head;
+      for (let i = 0; i < index - 1; i++) {
+        prev = prev.next;
+      }
+      removeNode = prev.next;
+      prev.next = removeNode.next;
+    }
+    this.size--;
+    return removeNode.value;
+  }
+
   print() {
     if (this.isEmpty()) {
       console.log("List is Empty");
@@ -90,10 +110,13 @@ list.print();
 list.append(10);
 list.append(20);
 list.append(30);
-list.insert(25,2)
+list.insert(25, 2);
 
 //Result after adding value in the list
 console.log(list.isEmpty());
 console.log(list.getSize());
 
+list.print();
+
+console.log(list.remove(3));
 list.print();
