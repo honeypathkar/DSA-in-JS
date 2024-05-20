@@ -125,6 +125,18 @@ class LinkList {
     }
   }
 
+  reverse() {
+    let prev = null;
+    let curr = this.head;
+    while (curr) {
+      let next = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = next;
+    }
+    this.head = prev;
+  }
+
   print() {
     if (this.isEmpty()) {
       console.log("List is Empty");
@@ -165,7 +177,7 @@ list.print();
 // console.log(list.removeValue(25));
 // console.log(list.removeValue(20));
 
-list.search(25);
-list.search(27);
-
+// list.search(25);
+// list.search(27);
+list.reverse();
 list.print();
