@@ -44,6 +44,24 @@ class LinkList {
     this.size++;
   }
 
+  insert(value, index) {
+    if (index < 0 || index > this.size) {
+      return;
+    }
+    if (index === 0) {
+      this.prepend(value);
+    } else {
+      const node = new Node(value);
+      let prev = this.head;
+      for (let i = 0; i < index - 1; i++) {
+        prev = prev.next;
+      }
+      node.next = prev.next;
+      prev.next = node;
+      this.size++;
+    }
+  }
+
   print() {
     if (this.isEmpty()) {
       console.log("List is Empty");
@@ -72,6 +90,7 @@ list.print();
 list.append(10);
 list.append(20);
 list.append(30);
+list.insert(25,2)
 
 //Result after adding value in the list
 console.log(list.isEmpty());
