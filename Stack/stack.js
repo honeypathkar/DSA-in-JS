@@ -21,7 +21,7 @@ class Stack {
     if (this.isEmpty()) {
       throw new Error("Stack is empty");
     }
-    return this.items[0];
+    return this.items[this.items.length - 1];
   }
 
   // Returns true if the stack is empty, false otherwise
@@ -50,9 +50,9 @@ stack.push(10);
 stack.push(20);
 stack.push(30);
 stack.print(); // 10, 20, 30
-console.log(stack.peek()); // 10
+console.log(stack.peek()); // 30
 console.log(stack.pop()); // 30
-console.log(stack.size()); // 2
+console.log(stack.size()); // 1
 console.log(stack.isEmpty()); // false
 stack.clear();
 console.log(stack.isEmpty()); // true
