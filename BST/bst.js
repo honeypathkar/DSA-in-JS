@@ -79,6 +79,21 @@ class BST {
       console.log(root.value);
     }
   }
+
+  bfs() {
+    let queue = [];
+    queue.push(this.root);
+    while (queue.length) {
+      let curr = queue.shift();
+      console.log(curr.value);
+      if (curr.left) {
+        queue.push(curr.left);
+      }
+      if (curr.right) {
+        queue.push(curr.right);
+      }
+    }
+  }
 }
 
 const bst = new BST();
@@ -94,4 +109,5 @@ console.log(bst.isEmpty());
 // console.log(bst.search(bst.root, 50));
 // bst.preOrder(bst.root);
 // bst.inOrder(bst.root);
-bst.postOrder(bst.root);
+// bst.postOrder(bst.root);
+bst.bfs();
